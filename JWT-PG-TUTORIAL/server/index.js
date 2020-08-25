@@ -1,22 +1,18 @@
-const express = require('express')
-const app = express()
-const cors = require("cors")
+const express = require("express");
+const app = express();
+const cors = require("cors");
 
-// midleware
+//middleware
 
-app.use(express.json()) // req.body
-app.use(cors())
+app.use(cors());
+app.use(express.json());
 
-// Routes 
+//routes
 
-//register and login routes
+app.use("/authentication", require("./routes/jwtAuth"));
 
-app.use("/auth", require("./routes/jwtAuth"))
-
-// dashboard router
-
-app.use("/dashboard", require("./routes/dashboard"))
+app.use("/dashboard", require("./routes/dashboard"));
 
 app.listen(5000, () => {
-    console.log("server is running on port 5000")
-})
+  console.log(`Server is starting on port 5000`);
+});
