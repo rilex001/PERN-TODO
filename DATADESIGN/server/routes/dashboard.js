@@ -13,13 +13,10 @@ router.get("/", authorize, async (req, res) => {
     // ); 
 
     const user = await pool.query(
-      "SELECT *   FROM users LEFT JOIN todos ON users.user_id = todos.user_id WHERE users.user_id = $1 ", 
+      "SELECT u.user_name, t.todo_id, t.description FROM users AS u LEFT JOIN todos AS t ON u.user_id = t.user_id WHERE u.user_id = $1 ", 
       [req.user.id]
     )
-
-    
-  
-    
+ 
     res.json(user.rows);
   } catch (err) {
     console.error(err.message);
@@ -27,7 +24,22 @@ router.get("/", authorize, async (req, res) => {
   }
 });
 
-// create a todo
+//create a todo
+
+router.post("/todos", authorize, async (req, res) => {
+  try {
+    console.log(req.body);
+    const { description } = req.body;
+    const newTodo = await pool.query(
+      "INSERT INTO todos (user_id, description) VALUES ($1, $2) RETURNING *",
+      [req.user.id, description]
+    );
+
+    res.json(newTodo.rows[0]);
+  } catch (err) {
+    console.error(err.message);
+  }
+});
 
 //update a todo
 
