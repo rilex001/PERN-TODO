@@ -14,7 +14,8 @@ import { toast } from "react-toastify";
 
 import Login from "./components/Login";
 import Register from "./components/Register";
-import Dashboard from "./components/Dashboard";
+import Dashboard from "./components/dashboard/Dashboard";
+import Landing from './components/Landing'
 
 toast.configure();
 
@@ -55,6 +56,17 @@ function App() {
               render={props =>
                 !isAuthenticated ? (
                   <Login {...props} setAuth={setAuth} />
+                ) : (
+                  <Redirect to="/dashboard" />
+                )
+              }
+            />
+            <Route
+              exact
+              path="/"
+              render={props =>
+                !isAuthenticated ? (
+                  <Landing {...props}  />
                 ) : (
                   <Redirect to="/dashboard" />
                 )
