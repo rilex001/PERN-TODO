@@ -46,7 +46,7 @@ const ListTodos = ({ allTodos, setTodosChange }) => {
           </tr>
         </thead>
         <tbody>
-          {/*<tr>
+          {/* <tr>
             <td>John</td>
             <td>Doe</td>
             <td>john@example.com</td>
