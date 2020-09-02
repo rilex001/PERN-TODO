@@ -2,12 +2,22 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const passport = require("passport")
+const cookieSession = require('cookie-session')
+require('./passport/passport')
+
 //middleware
 
 app.use(cors());
 app.use(express.json());
 
+app.use(cookieSession({
+  name: 'tuto-session',
+  keys: ['key1', 'key2']
+}))
+
 //routes
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use("/authentication", require("./routes/jwtAuth"));
 
