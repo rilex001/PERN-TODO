@@ -49,7 +49,10 @@ const InputBook = () => {
                     value={page} 
                     onChange={e => setPage(e.target.value)}
                 />
-                <button className='btn btn-success mt-3 text-center'>Add</button>
+                <div className='d-flex justify-content-center mt-2'>
+                <button className='btn btn-success'>Add</button>
+                </div>
+                
             </form>
         </>
     )

@@ -57,6 +57,22 @@ app.get("/books", async (req, res) => {
     }
   });
 
+  //get search books
+
+  app.get("/books", async (req, res) => {
+    try {
+      const { search } = req.query;
+      const allBooks = await pool.query(
+        "SELECT * FROM users WHERE title || ' ' || author ILIKE $1",
+        [`%${search}%`]
+      );
+  
+      res.json(users.rows);
+    } catch (err) {
+      console.error(err.message);
+    }
+  });
+
 //update a book
 
 app.put("/books/:id", async (req, res) => {

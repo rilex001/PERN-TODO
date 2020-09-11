@@ -34,13 +34,12 @@ const ListBooks = () => {
     getBooks();
   }, []);
 
-  console.log(books);
 
   return (
     <Fragment>
       {" "}
       <table class="table mt-5 text-center">
-        <thead>
+        <thead  className="bg-info">
           <tr>
             <th>Book</th>
             <th>Author</th>
