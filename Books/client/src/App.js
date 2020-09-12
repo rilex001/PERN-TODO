@@ -9,7 +9,6 @@ function App() {
     <div>
       <div className='container'>
         <InputBook />
-        <SearchBook />
         <ListBooks />
       </div>
     </div>

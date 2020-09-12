@@ -4,6 +4,7 @@ import EditBook from "./EditBook";
 
 const ListBooks = () => {
   const [books, setBooks] = useState([]);
+  const [drop, setdrop] = useState('Sala mala')
 
   //delete todo function
 
@@ -34,9 +35,34 @@ const ListBooks = () => {
     getBooks();
   }, []);
 
+  const handleChange = (e) => {
+    setdrop(e.target.value)
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  }
+
+  const mirko = books.sort((a, b) => (a.page < b.page) ? 1 : -1)
+  const marko = books.sort((a, b) => (a.author < b.author) ? 1 : -1)
+  const misko = books.sort((a, b) => (a.title > b.title) ? 1 : -1)
+  console.log(misko)
 
   return (
     <Fragment>
+      <form onSubmit={this.handleSubmit}>
+        <label>
+          Pick your favorite flavor:
+          <select value={this.state.drop} onChange={this.handleChange}>
+            <option value="grapefruit">Grapefruit</option>
+            <option value="lime">Lime</option>
+            <option value="coconut">Coconut</option>
+            <option value="mango">Mango</option>
+          </select>
+        </label>
+        <input type="submit" value="Submit" />
+      </form>
+
       {" "}
       <table class="table mt-5 text-center">
         <thead  className="bg-info">
