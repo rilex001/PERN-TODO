@@ -4,7 +4,8 @@ import EditBook from "./EditBook";
 
 const ListBooks = () => {
   const [books, setBooks] = useState([]);
-  const [drop, setdrop] = useState('Sala mala')
+  const [select, setSelect] = useState()
+  const [search, setSearch] = useState('')
 
   //delete todo function
 
@@ -35,33 +36,43 @@ const ListBooks = () => {
     getBooks();
   }, []);
 
-  const handleChange = (e) => {
-    setdrop(e.target.value)
+  if(select === 'title') {
+    books.sort((a, b) => (a.title > b.title) ? 1 : -1)
+  } else if(select === 'title1') {
+    books.sort((a, b) => (a.title < b.title) ? 1 : -1)
+  } else if(select === 'author') {
+    books.sort((a, b) => (a.author > b.author) ? 1 : -1)
+  } else if(select === 'author1') {
+    books.sort((a, b) => (a.author < b.author) ? 1 : -1)
+  } else if(select === 'page') {
+    books.sort((a, b) => (a.page > b.page) ? 1 : -1)
+  } else if(select === 'page1') {
+    books.sort((a, b) => (a.page < b.page) ? 1 : -1)
   }
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-  }
-
-  const mirko = books.sort((a, b) => (a.page < b.page) ? 1 : -1)
-  const marko = books.sort((a, b) => (a.author < b.author) ? 1 : -1)
-  const misko = books.sort((a, b) => (a.title > b.title) ? 1 : -1)
-  console.log(misko)
-
+  console.log(search)
   return (
     <Fragment>
-      <form onSubmit={this.handleSubmit}>
-        <label>
-          Pick your favorite flavor:
-          <select value={this.state.drop} onChange={this.handleChange}>
-            <option value="grapefruit">Grapefruit</option>
-            <option value="lime">Lime</option>
-            <option value="coconut">Coconut</option>
-            <option value="mango">Mango</option>
-          </select>
-        </label>
-        <input type="submit" value="Submit" />
-      </form>
+
+        <input 
+            className="form-control m-2" 
+            placeholder="Search for a country..." 
+            value={search}
+            onChange={e => setSearch(e.target.value)}
+        />
+
+      <select id="region" value={select} onChange={e => setSelect(e.target.value)}>
+                <option value="">Sort by</option>
+                <option value="title">title (A-Z)</option>
+                <option value="title1">title (Z-A)</option>
+                <option value="author">author (A-Z)</option>
+                <option value="author1">author (Z-A)</option>
+                <option value="page">page increase</option>
+                <option value="page1">page decrease</option>
+      </select> 
+
+   
+
 
       {" "}
       <table class="table mt-5 text-center">
