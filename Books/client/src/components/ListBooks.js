@@ -36,6 +36,8 @@ const ListBooks = () => {
     getBooks();
   }, []);
 
+ 
+
   if(select === 'title') {
     books.sort((a, b) => (a.title > b.title) ? 1 : -1)
   } else if(select === 'title1') {
@@ -50,18 +52,22 @@ const ListBooks = () => {
     books.sort((a, b) => (a.page < b.page) ? 1 : -1)
   }
 
-  console.log(search)
+  const filteredData = books.filter(item => {
+    return item.title.toLowerCase().indexOf( search.toLowerCase() ) !== -1
+  });
+  
+console.log(filteredData)
   return (
     <Fragment>
 
         <input 
             className="form-control m-2" 
-            placeholder="Search for a country..." 
+            placeholder="Search for a book..." 
             value={search}
             onChange={e => setSearch(e.target.value)}
         />
 
-      <select id="region" value={select} onChange={e => setSelect(e.target.value)}>
+      <select id="sort" value={select} onChange={e => setSelect(e.target.value)}>
                 <option value="">Sort by</option>
                 <option value="title">title (A-Z)</option>
                 <option value="title1">title (Z-A)</option>
@@ -91,7 +97,7 @@ const ListBooks = () => {
             <td>Doe</td>
             <td>john@example.com</td>
           </tr> */}
-          {books.map(book => (
+          {filteredData.map(book => (
             <tr key={book.book_id}>
               <td>{book.title}</td>
               <td>{book.author}</td>
