@@ -16,5 +16,14 @@ CREATE TABLE todo(
   FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
 
+CREATE TABLE todo(
+    book_id SERIAL PRIMARY KEY,
+    title VARCHAR(100),
+    author VARCHAR(100),
+    page INT
+);
 
 INSERT INTO users (user_name, user_email, user_password) VALUES ('henry', 'henryly213@gmail.com', 'kthl8822');
+
+
+INSERT INTO book (user_id, title, author, page) VALUES ('a2497a96-ebee-443c-b110-06c1d46b05e0', 'Alchemist', 'Paulo Coelho', '244');
