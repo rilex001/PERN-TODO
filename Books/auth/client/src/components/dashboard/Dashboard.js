@@ -1,18 +1,28 @@
 import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 
+//components
+
+import InputBook from './todolist/InputBook'
+import ListBooks from './todolist/ListBooks'
+
 const Dashboard = ({ setAuth }) => {
   const [name, setName] = useState("");
+  const [allBooks, setAllBooks] = useState([])
+  const [booksChange, setBooksChange] = useState(false)
 
   const getProfile = async () => {
     try {
       const res = await fetch("http://localhost:5000/dashboard/", {
-        method: "POST",
+        method: "GET",
         headers: { jwt_token: localStorage.token }
       });
 
       const parseData = await res.json();
-      setName(parseData.user_name);
+
+      setAllBooks(parseData)
+
+      setName(parseData[0].user_name);
     } catch (err) {
       console.error(err.message);
     }
@@ -31,7 +41,8 @@ const Dashboard = ({ setAuth }) => {
 
   useEffect(() => {
     getProfile();
-  }, []);
+    setBooksChange(false)
+  }, [booksChange]);
 
   return (
     <div>
@@ -40,6 +51,8 @@ const Dashboard = ({ setAuth }) => {
       <button onClick={e => logout(e)} className="btn btn-primary">
         Logout
       </button>
+      <InputBook setBooksChange={setBooksChange} />
+      <ListBooks allBooks={allBooks} setBooksChange={setBooksChange} />
     </div>
   );
 };

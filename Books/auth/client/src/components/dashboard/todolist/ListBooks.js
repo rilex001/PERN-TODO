@@ -2,7 +2,7 @@ import React, { Fragment, useEffect, useState } from "react";
 
 import EditBook from "./EditBook";
 
-const ListBooks = () => {
+const ListBooks = ({ allBooks, setBooksChange }) => {
   const [books, setBooks] = useState([]);
   const [select, setSelect] = useState()
   const [search, setSearch] = useState('')
@@ -11,8 +11,9 @@ const ListBooks = () => {
 
   const deleteBook = async id => {
     try {
-      const deleteBook = await fetch(`http://localhost:5000/books/${id}`, {
-        method: "DELETE"
+      const deleteBook = await fetch(`http://localhost:5000/dashboard/books/${id}`, {
+        method: "DELETE",
+        headers: {jwt_token : localStorage.token}
       });
 
       setBooks(books.filter(book => book.book_id !== id));
@@ -21,20 +22,20 @@ const ListBooks = () => {
     }
   };
 
-  const getBooks = async () => {
-    try {
-      const response = await fetch("http://localhost:5000/books");
-      const jsonData = await response.json();
+  // const getBooks = async () => {
+  //   try {
+  //     const response = await fetch("http://localhost:5000/books");
+  //     const jsonData = await response.json();
 
-      setBooks(jsonData);
-    } catch (err) {
-      console.error(err.message);
-    }
-  };
+  //     setBooks(jsonData);
+  //   } catch (err) {
+  //     console.error(err.message);
+  //   }
+  // };
 
   useEffect(() => {
-    getBooks();
-  }, []);
+    setBooks(allBooks)
+  }, [allBooks]);
 
  
 
@@ -56,7 +57,6 @@ const ListBooks = () => {
     return item.title.toLowerCase().indexOf( search.toLowerCase() ) !== -1
   });
   
-console.log(filteredData)
   return (
     <Fragment>
 
@@ -97,13 +97,15 @@ console.log(filteredData)
             <td>Doe</td>
             <td>john@example.com</td>
           </tr> */}
-          {filteredData.map(book => (
+          {filteredData.length !== 0 && 
+            filteredData[0].book_id !== null && 
+              filteredData.map(book => (
             <tr key={book.book_id}>
               <td>{book.title}</td>
               <td>{book.author}</td>
               <td>{book.page}</td>
               <td>
-                <EditBook book={book} />
+                <EditBook book={book} setBooksChange={setBooksChange}/>
               </td>
               <td>
                 <button

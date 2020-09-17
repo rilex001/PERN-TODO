@@ -52,7 +52,7 @@ function App() {
           <Switch>
             <Route
               exact
-              path="/login"
+              path="/"
               render={props =>
                 !isAuthenticated ? (
                   <Landing {...props}  />

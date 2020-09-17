@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from "react";
 
-const EditBook = ({ book }) => {
+const EditBook = ({ book, setBooksChange }) => {
   const [title, setTitle] = useState(book.title);
   const [author, setAuthor] = useState(book.author);
   const [page, setPage] = useState(book.page)
@@ -11,16 +11,24 @@ const EditBook = ({ book }) => {
     e.preventDefault();
     try {
       const body = { title, author, page };
+
+      const myHeaders = newHeaders()
+
+      myHeaders.append("Content-Type", "application/json")
+      myHeaders.append("jwt_token", localStorage.token)
+
       const response = await fetch(
-        `http://localhost:5000/books/${book.book_id}`,
+        `http://localhost:5000/dashboard/books/${book.book_id}`,
         {
           method: "PUT",
-          headers: { "Content-Type": "application/json" },
+          headers: myHeaders,
           body: JSON.stringify(body)
         }
       );
 
-      window.location = "/";
+      setTodosChange(true)
+
+      // window.location = "/";
     } catch (err) {
       console.error(err.message);
     }

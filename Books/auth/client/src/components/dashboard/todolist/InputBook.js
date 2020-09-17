@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 
 
 
-const InputBook = () => {
+const InputBook = ({ setBooksChange }) => {
 
     const [title, setTitle] = useState()
     const [author, setAuthor] = useState()
@@ -11,14 +11,24 @@ const InputBook = () => {
     const onSubmitForm = async e => {
         e.preventDefault();
         try {
+
+          const myHeaders = new Headers()
+          myHeaders.append("Content-Type", "application/json")
+          myHeaders.append("jwt_token", localStorage.token)
+
           const body = { title, author, page };
-          const response = await fetch("http://localhost:5000/books", {
+          const response = await fetch("http://localhost:5000/dashboard/books", {
             method: "POST",
-            headers: { "Content-Type": "application/json" },
+            headers: myHeaders,
             body: JSON.stringify(body)
           });
-    
-          window.location = "/";
+
+          const parseResponse = await response.json()
+
+          console.log(parseResponse)
+
+          setBooksChange(true)
+          // window.location = "/";
         } catch (err) {
           console.error(err.message);
         }
