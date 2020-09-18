@@ -46,11 +46,12 @@ const Dashboard = ({ setAuth }) => {
 
   return (
     <div>
-      <h1 className="mt-5">Dashboard</h1>
+      <div className="d-flex mt-5 justify-content-around">
       <h2>Welcome {name}</h2>
       <button onClick={e => logout(e)} className="btn btn-primary">
         Logout
       </button>
+      </div>
       <InputBook setBooksChange={setBooksChange} />
       <ListBooks allBooks={allBooks} setBooksChange={setBooksChange} />
     </div>

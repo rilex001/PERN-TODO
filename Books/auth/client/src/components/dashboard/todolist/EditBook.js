@@ -7,17 +7,17 @@ const EditBook = ({ book, setBooksChange }) => {
  
   //edit description function
 
-  const updateDescription = async e => {
+  const updateBooks = async e => {
     e.preventDefault();
     try {
       const body = { title, author, page };
 
-      const myHeaders = newHeaders()
+      const myHeaders = new Headers()
 
       myHeaders.append("Content-Type", "application/json")
       myHeaders.append("jwt_token", localStorage.token)
 
-      const response = await fetch(
+       await fetch(
         `http://localhost:5000/dashboard/books/${book.book_id}`,
         {
           method: "PUT",
@@ -26,7 +26,7 @@ const EditBook = ({ book, setBooksChange }) => {
         }
       );
 
-      setTodosChange(true)
+      setBooksChange(true)
 
       // window.location = "/";
     } catch (err) {
@@ -38,7 +38,7 @@ const EditBook = ({ book, setBooksChange }) => {
     <Fragment>
       <button
         type="button"
-        class="btn btn-warning"
+        className="btn btn-warning"
         data-toggle="modal"
         data-target={`#id${book.book_id}`}
       >
@@ -49,17 +49,17 @@ const EditBook = ({ book, setBooksChange }) => {
         id = id10
       */}
       <div
-        class="modal"
+        className="modal"
         id={`id${book.book_id}`}
         onClick={() => setTitle(book.title)}
       >
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h4 class="modal-title">Edit Todo</h4>
+        <div className="modal-dialog">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h4 className="modal-title">Edit Todo</h4>
               <button
                 type="button"
-                class="close"
+                className="close"
                 data-dismiss="modal"
                 onClick={() => setTitle(book.title)}
               >
@@ -67,7 +67,7 @@ const EditBook = ({ book, setBooksChange }) => {
               </button>
             </div>
 
-            <div class="modal-body">
+            <div className="modal-body">
               <input
                 type="text"
                 className="form-control"
@@ -88,18 +88,18 @@ const EditBook = ({ book, setBooksChange }) => {
               />
             </div>
 
-            <div class="modal-footer">
+            <div className="modal-footer">
               <button
                 type="button"
-                class="btn btn-warning"
+                className="btn btn-warning"
                 data-dismiss="modal"
-                onClick={e => updateDescription(e)}
+                onClick={e => updateBooks(e)}
               >
                 Edit
               </button>
               <button
                 type="button"
-                class="btn btn-danger"
+                className="btn btn-danger"
                 data-dismiss="modal"
                 onClick={() => setTitle(book.title)}
               >

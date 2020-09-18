@@ -11,7 +11,7 @@ const ListBooks = ({ allBooks, setBooksChange }) => {
 
   const deleteBook = async id => {
     try {
-      const deleteBook = await fetch(`http://localhost:5000/dashboard/books/${id}`, {
+       await fetch(`http://localhost:5000/dashboard/books/${id}`, {
         method: "DELETE",
         headers: {jwt_token : localStorage.token}
       });
@@ -53,9 +53,10 @@ const ListBooks = ({ allBooks, setBooksChange }) => {
     books.sort((a, b) => (a.page < b.page) ? 1 : -1)
   }
 
-  const filteredData = books.filter(item => {
-    return item.title.toLowerCase().indexOf( search.toLowerCase() ) !== -1
-  });
+
+  // const filteredData =  books.length !== 0 && filteredData[0].book_id !== null &&   books.filter(item => {
+  //   return item.title.toLowerCase().indexOf( search.toLowerCase() ) !== -1
+  // }) 
   
   return (
     <Fragment>
@@ -81,7 +82,7 @@ const ListBooks = ({ allBooks, setBooksChange }) => {
 
 
       {" "}
-      <table class="table mt-5 text-center">
+      <table className="table mt-5 text-center">
         <thead  className="bg-info">
           <tr>
             <th>Book</th>
@@ -97,9 +98,8 @@ const ListBooks = ({ allBooks, setBooksChange }) => {
             <td>Doe</td>
             <td>john@example.com</td>
           </tr> */}
-          {filteredData.length !== 0 && 
-            filteredData[0].book_id !== null && 
-              filteredData.map(book => (
+          {   
+              books.map(book => (
             <tr key={book.book_id}>
               <td>{book.title}</td>
               <td>{book.author}</td>
@@ -116,7 +116,7 @@ const ListBooks = ({ allBooks, setBooksChange }) => {
                 </button>
               </td>
             </tr>
-          ))}
+          ))         }
         </tbody>
       </table>
     </Fragment>
