@@ -1,4 +1,5 @@
 import React, { Fragment, useState, useEffect } from "react";
+import "./index.css";
 
 import "react-toastify/dist/ReactToastify.css";
 import {
@@ -46,9 +47,8 @@ function App() {
   };
 
   return (
-    <Fragment>
+    <div className='booksproject'>
       <Router>
-        <div className="container">
           <Switch>
             <Route
               exact
@@ -95,9 +95,8 @@ function App() {
               }
             />
           </Switch>
-        </div>
       </Router>
-    </Fragment>
+    </div>
   );
 }
 

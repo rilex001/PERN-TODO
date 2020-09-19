@@ -4,12 +4,20 @@ import { Link } from 'react-router-dom'
 
 const Landing = () => {
     return (
-        <div className='jumbotron'>
-            <h1>Welcome to Books Project app</h1>
+        <>
+        <div className='navigation'>
+            <p className='logo'>BooksProject</p>
             {/* <p>Sign In and start building your todo list</p> */}
-            <Link to="/login" className="btn btn-primary">Login</Link>
-            <Link to="/register" className="btn btn-primary ml-3">Register</Link>
+            <div className='buttoncontainer'>
+            <Link to="/login" className="button">Login</Link>
+            <Link to="/register" className="button">Register</Link>
+            </div>
         </div>
+        <div className='wrapper'>
+            <p className='content'>Welcome to Books Project</p>
+            <p>Books list project is </p>
+        </div>
+        </>
     )
 }
 

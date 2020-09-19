@@ -1,13 +1,41 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+:root{
+    --primary: #FEEAE6;
+    --secondary: #FEEAE6;
+    --third: #442C2E
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.booksproject {
+    background-color: var(--primary);
+    height: 100vh;
+}
+
+.navigation {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 10px;
+    box-sizing: border-box;
+}
+
+.logo {
+    margin-top: 10px;
+    font-size: 22px;
+    grid-column: 2 / 3;
+}
+
+.buttoncontainer {
+    margin-top: 15px;
+    grid-column: 5 / 9;
+}
+
+.button {
+    background-color: var(--third);
+    padding: 5px;
+    color: White;
+    align-items: center;
+    margin-left: 3px;
+}
+
+.content {
+    font-size: 40px;
+    margin: 20px;
 }
