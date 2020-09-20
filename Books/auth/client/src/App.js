@@ -55,7 +55,7 @@ function App() {
               path="/"
               render={props =>
                 !isAuthenticated ? (
-                  <Landing {...props}  />
+                  <Landing {...props} setAuth={setAuth} />
                 ) : (
                   <Redirect to="/dashboard" />
                 )

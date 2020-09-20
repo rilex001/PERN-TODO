@@ -44,7 +44,7 @@ const Register = ({ setAuth }) => {
   };
 
   return (
-    <Fragment>
+    <div className='formcontainer'>
       <h1 className="mt-5 text-center">Register</h1>
       <form onSubmit={onSubmitForm}>
         <input
@@ -74,7 +74,7 @@ const Register = ({ setAuth }) => {
         <button className="btn btn-success btn-block">Submit</button>
       </form>
       <Link to="/login">login</Link>
-    </Fragment>
+    </div>
   );
 };
 

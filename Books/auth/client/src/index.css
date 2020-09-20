@@ -4,6 +4,10 @@
     --third: #442C2E
 }
 
+h3 {
+    text-align: center;
+}
+
 .booksproject {
     background-color: var(--primary);
     height: 100vh;
@@ -14,6 +18,7 @@
     grid-template-columns: repeat(10, 1fr);
     gap: 10px;
     box-sizing: border-box;
+    margin-top: 20px;
 }
 
 .logo {
@@ -35,12 +40,16 @@
     margin-left: 3px;
 }
 
-.content {
-    font-size: 40px;
+.wrapper {
+    font-size: 25px;
     margin: 20px;
 }
 
-.mrk {
-    margin: 20px;
-    font-size: 25px;
+.content {
+    font-size: 43px;
 }
+
+.formcontainer {
+    margin: 40px 20px;
+}
+
