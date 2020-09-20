@@ -15,7 +15,7 @@ const Landing = () => {
         </div>
         <div className='wrapper'>
             <p className='content'>Welcome to Books Project</p>
-            <p>Books list project is </p>
+            <p className='mrk'>Books list project is </p>
         </div>
         </>
     )
