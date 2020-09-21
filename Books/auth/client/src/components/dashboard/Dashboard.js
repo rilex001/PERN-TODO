@@ -48,12 +48,14 @@ const Dashboard = ({ setAuth }) => {
     <div>
       <div className="d-flex mt-5 justify-content-around">
       <h2>Welcome {name}</h2>
-      <button onClick={e => logout(e)} className="btn btn-primary">
+      <button onClick={e => logout(e)} className="inputbuton">
         Logout
       </button>
       </div>
+      <div className='formcontainer'>
       <InputBook setBooksChange={setBooksChange} />
       <ListBooks allBooks={allBooks} setBooksChange={setBooksChange} />
+      </div>
     </div>
   );
 };

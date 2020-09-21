@@ -82,7 +82,8 @@ const ListBooks = ({ allBooks, setBooksChange }) => {
 
 
       {" "}
-      <table className="table mt-5 text-center">
+       {/* table mt-5  */}
+      <table className="listbook text-center">
         <thead  className="bg-info">
           <tr>
             <th>Book</th>

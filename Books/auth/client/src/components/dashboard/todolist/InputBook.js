@@ -39,7 +39,7 @@ const InputBook = ({ setBooksChange }) => {
 
     return (
         <>
-            <h1 className='text-center my-5'>Input Book</h1>
+            <h2 className='text-center my-5'>Input Book</h2>
             <form className='' onSubmit={onSubmitForm}  >
                 <input 
                     type='text' 
@@ -63,7 +63,7 @@ const InputBook = ({ setBooksChange }) => {
                     onChange={e => setPage(e.target.value)}
                 />
                 <div className='d-flex justify-content-center mt-2'>
-                <button className='btn btn-success'>Add</button>
+                <button className='inputbuton'>Add</button>
                 </div>
                 
             </form>

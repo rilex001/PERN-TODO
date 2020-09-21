@@ -1,7 +1,7 @@
 :root{
-    --primary: #FEEAE6;
+    --primary: #FEDBD0;
     --secondary: #FEEAE6;
-    --third: #442C2E
+    --third: #442C2E;
 }
 
 h3 {
@@ -11,6 +11,8 @@ h3 {
 .booksproject {
     background-color: var(--primary);
     height: 100vh;
+
+    overflow-y: overlay;
 }
 
 .navigation {
@@ -53,3 +55,16 @@ h3 {
     margin: 40px 20px;
 }
 
+.listbook {
+    margin-top: 30px;
+    padding: 5px;
+    background-color: var(--secondary);
+}
+
+
+.inputbuton {
+    background-color: var(--third);
+    color: white;
+    padding: 5px;
+    width: 25%;
+}
