@@ -67,4 +67,121 @@ h3 {
     color: white;
     padding: 5px;
     width: 25%;
+    margin: 18px;
+}
+
+/* small tablet styles  */
+
+@media screen and (min-width: 620px) {
+    
+    
+    .logo {
+        margin-top: 10px;
+        font-size: 35px;
+        grid-column: 2 / 4;
+    }
+    
+    .buttoncontainer {
+        margin-top: 15px;
+        grid-column: 9 / 10;
+    }
+    
+    .button {
+        padding: 13px;
+        color: White;
+        align-items: center;
+        margin-left: 18px;
+        font-size: 20px;
+    }
+    
+    .wrapper {
+        font-size: 30px;
+        margin: 20px 50px;
+    }
+    
+    .content {
+        font-size: 47px;
+    }
+    
+    .formcontainer {
+        margin: 60px 90px;
+    }
+
+    .listbook {
+        width: 100%;
+    }
+    
+    th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        color: white;
+        font-size: 20px;   
+    }
+
+    td {
+        padding: 10px;
+        font-size: 17px;
+    }
+
+    
+}
+@media screen and (min-width: 960px) {
+
+
+    
+    
+    
+    .wrapper {
+        font-size: 30px;
+        margin: 20px 14%;
+    }
+    
+    
+    
+    .formcontainer {
+        margin: 80px 14%;
+    }
+
+    .listbook {
+        width: 100%;
+    }
+    
+    th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        color: white;
+        font-size: 30px;   
+    }
+
+    td {
+        padding: 10px;
+        font-size: 27px;
+    }
+
+}
+
+@media screen and (min-width: 1200px) {
+
+
+    .landing {
+        display: grid;
+        grid-template-columns: repeat(10, 1fr);
+    }
+    
+    .wrapper {
+        font-size: 30px;
+        margin-top: 60px;
+        grid-column: 1 / 6;
+
+    }
+    
+    .content {
+        font-size: 47px;
+    }
+    
+    .formcontainer {
+        grid-column: 6 / 10;
+
+    }
+    
 }

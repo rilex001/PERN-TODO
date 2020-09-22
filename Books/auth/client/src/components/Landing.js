@@ -55,6 +55,7 @@ const Landing = ({ setAuth }) => {
             <Link to="/register" className="button">Register</Link>
             </div>
         </div>
+        <div className='landing'>
         <div className='wrapper'>
             <p className='content'>Welcome to BooksProject</p>
             <p>y dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown </p>
@@ -90,6 +91,7 @@ const Landing = ({ setAuth }) => {
         <button className="btn btn-success btn-block">Submit</button>
       </form>
       <Link to="/login">login</Link>
+      </div>
       </div>
         </>
     )
