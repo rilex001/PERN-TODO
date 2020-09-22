@@ -3,6 +3,16 @@
     --secondary: #FEEAE6;
     --third: #442C2E;
 }
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@1,700&display=swap');
+body{
+   
+    font-family: 'Courier Prime', monospace;
+  }
+
+.landingpage {
+    max-width: 1200px;
+    margin: 0px auto;
+}
 
 h3 {
     text-align: center;
@@ -30,7 +40,7 @@ h3 {
 }
 
 .buttoncontainer {
-    margin-top: 15px;
+    margin-top: 10px;
     grid-column: 5 / 9;
 }
 
@@ -59,15 +69,18 @@ h3 {
     margin-top: 30px;
     padding: 5px;
     background-color: var(--secondary);
+    font-family: monospace;
+    width: 100%;
 }
+
 
 
 .inputbuton {
     background-color: var(--third);
     color: white;
     padding: 5px;
-    width: 25%;
-    margin: 18px;
+    width: 150px;
+    margin: 10px;
 }
 
 /* small tablet styles  */

@@ -46,7 +46,7 @@ const Landing = ({ setAuth }) => {
 
   
     return (
-        <>
+        <div className='landingpage'>
         <div className='navigation'>
             <p className='logo'>BooksProject</p>
             {/* <p>Sign In and start building your todo list</p> */}
@@ -93,7 +93,7 @@ const Landing = ({ setAuth }) => {
       <Link to="/login">login</Link>
       </div>
       </div>
-        </>
+        </div>
     )
 }
 

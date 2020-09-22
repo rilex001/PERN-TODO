@@ -54,7 +54,7 @@ router.put("/books/:id", authorize, async (req, res) => {
       [title, author, page, id, req.user.id]
     );
 
-    if(updateTodo.rows.length === 0) {
+    if(updateBook.rows.length === 0) {
       return res.json("This todo is not yours")
     }
 

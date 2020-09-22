@@ -45,7 +45,7 @@ const Dashboard = ({ setAuth }) => {
   }, [booksChange]);
 
   return (
-    <div>
+    <div className='landingpage'>
       <div className="d-flex mt-5 justify-content-around">
       <h2>Welcome {name}</h2>
       <button onClick={e => logout(e)} className="inputbuton">

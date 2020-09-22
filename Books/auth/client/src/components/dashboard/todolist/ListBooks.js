@@ -54,9 +54,9 @@ const ListBooks = ({ allBooks, setBooksChange }) => {
   }
 
 
-  // const filteredData =  books.length !== 0 && filteredData[0].book_id !== null &&   books.filter(item => {
-  //   return item.title.toLowerCase().indexOf( search.toLowerCase() ) !== -1
-  // }) 
+  const filteredData =  books.filter(item => {
+    return item.title.toLowerCase().indexOf( search.toLowerCase() ) !== -1
+  }) 
   
   return (
     <Fragment>
@@ -79,7 +79,9 @@ const ListBooks = ({ allBooks, setBooksChange }) => {
       </select> 
 
    
-
+{
+  filteredData.length && console.log(filteredData)
+}
 
       {" "}
        {/* table mt-5  */}
@@ -100,7 +102,7 @@ const ListBooks = ({ allBooks, setBooksChange }) => {
             <td>john@example.com</td>
           </tr> */}
           {   
-              books.map(book => (
+          filteredData.length ?   filteredData.map(book => (
             <tr key={book.book_id}>
               <td>{book.title}</td>
               <td>{book.author}</td>
@@ -117,7 +119,7 @@ const ListBooks = ({ allBooks, setBooksChange }) => {
                 </button>
               </td>
             </tr>
-          ))         }
+          ))   : null      }
         </tbody>
       </table>
     </Fragment>
